@@ -1,0 +1,2 @@
+class RiskProfilesController < ApplicationController
+end
