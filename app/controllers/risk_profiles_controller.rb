@@ -1,2 +1,0 @@
-class RiskProfilesController < ApplicationController
-end

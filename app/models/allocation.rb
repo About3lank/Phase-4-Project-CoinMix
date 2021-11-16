@@ -1,2 +1,0 @@
-class Allocation < ApplicationRecord
-end

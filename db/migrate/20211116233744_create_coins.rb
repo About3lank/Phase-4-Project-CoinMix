@@ -7,8 +7,6 @@ class CreateCoins < ActiveRecord::Migration[6.1]
       t.integer :market_cap
       t.integer :risk_level
       t.string :category
-      t.integer :trust_score
-      t.integer :allocation_id
 
       t.timestamps
     end
