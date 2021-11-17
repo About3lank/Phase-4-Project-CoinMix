@@ -16,7 +16,7 @@ function Question({ pref }) {
     let choices = []
     for (let i=0; i<5; i++) {
         let choice = {
-            text: pref[`choice_${i+1}`],
+            text: pref.preference[`choice_${i+1}`],
             value: i+1
         }
         choices.push(choice)
@@ -27,7 +27,7 @@ function Question({ pref }) {
             className="question-container"
             id={`question-${pref.id}`}
         >
-            <h2 className="question">{pref.question}</h2>
+            <h2 className="question">{pref.preference.question}</h2>
             <div className="slider-container">
                 <input
                     id={`slider-${pref.id}`}
@@ -37,11 +37,11 @@ function Question({ pref }) {
                     max="5"
                     step="1"
                     defaultValue="3"
-                    value={value}
+                    value={pref.choice_value}
                     onInput={updateHandler}
                     onChange={updateHandler}
-                    list={`intervals-${pref.id}`} />
-                <dataList id={`intervals-${pref.id}`}>
+                    list={`intervals-${pref.preference.id}`} />
+                <dataList id={`intervals-${pref.preference.id}`}>
                     <option value="1" label="1"></option>
                     <option value="2" label="2"></option>
                     <option value="3" label="3"></option>

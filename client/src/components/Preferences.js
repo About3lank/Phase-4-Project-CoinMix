@@ -3,19 +3,19 @@ import Question from './Question.js'
 
 function Preferences() {
 
-    const [ preferences, setPreferences ] = useState([])
+    const [ user_preferences, setUserPreferences ] = useState([])
+    const [ currentUser, setCurrentUser ] = useState({id: 10})
+    
 
     useEffect( () => {
-        fetch("/preferences")
+        fetch("/user_preferences")
         .then(r => r.json())
-        .then(data => setPreferences(data))
+        .then(data => setUserPreferences(data.filter( (u) => (u.user_id === currentUser.id))))
     }, [])
-
-    // console.log("PREFERENCES @Preferences.js ~after_fetch: ", preferences)
 
     return(
         <form id="preference-form">
-            {preferences.map( (pref) => <Question pref={pref} />)}
+            {user_preferences.map( (pref) => <Question pref={pref} />)}
         </form>
     )
 }
