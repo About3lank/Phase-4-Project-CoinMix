@@ -9,9 +9,16 @@ function Question({ pref }) {
         setValue(currentVal)
     }
 
+    function clickHandler(value) {
+        setValue(value)
+    }
+
     let choices = []
     for (let i=0; i<5; i++) {
-        let choice = pref[`choice_${i+1}`]
+        let choice = {
+            text: pref[`choice_${i+1}`],
+            value: i+1
+        }
         choices.push(choice)
     }
 
@@ -20,7 +27,7 @@ function Question({ pref }) {
             className="question-container"
             id={`question-${pref.id}`}
         >
-            <h3 className="question">{pref.question}</h3>
+            <h2 className="question">{pref.question}</h2>
             <div className="slider-container">
                 <input
                     id={`slider-${pref.id}`}
@@ -30,6 +37,7 @@ function Question({ pref }) {
                     max="5"
                     step="1"
                     defaultValue="3"
+                    value={value}
                     onInput={updateHandler}
                     onChange={updateHandler}
                     list={`intervals-${pref.id}`} />
@@ -44,10 +52,13 @@ function Question({ pref }) {
                     <table>
                         <tr class="choice-row">
                             {choices.map( (choice) => 
-                                <td className="choice">{choice}</td>)}
+                            <td 
+                                className="choice"
+                                onClick={() => clickHandler(choice.value)} >
+                                    {choice.text}
+                            </td>)}
                         </tr>
                     </table>
-
                 </div>
             </div>
         </div>
