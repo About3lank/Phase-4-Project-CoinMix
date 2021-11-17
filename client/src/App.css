@@ -51,7 +51,6 @@
   border: 1px solid rgb(148, 148, 148);
   padding: 1em;
   background-color: #cfcfcf;
-  transition: background-color 50ms ease-out 50ms;
 }
 
 .question-container:hover {

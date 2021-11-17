@@ -8,34 +8,24 @@
 
 puts "Deleting existing data..."
 
-
-
 puts "Seeding users..."
 
-user_count = 100
-def user_count
-    user_count += 1
-    return user_count
+user_bank = [
+    "Michael Scott", "Liz Lemon", "Jeff Winger", "Michael Bluth", "Leslie Knope",
+    "Jake Peralta", "Phillip J. Fry", "Peter Griffin", "Dee Reynolds", "Morty Smith", 
+    "Jessica Day"
+]
+user_list = []
+user_bank.each_with_index do |b, i|
+    user_list.push({
+        name: b,
+        age: rand(18..90),
+        risk_profile: rand(1..30),
+        username: "user#{101 + i}",
+        password_digest: "temptemptemp"
+    })
 end
-
-users = User.create([
-    {
-        name: "Jonny the Jet",
-        age: 32,
-        risk_profile: 50,
-        username: "user#{user_count}",
-        password_digest: "temptemptemp"
-    },
-    {
-        name: "Chuck Norris",
-        age: 65,
-        risk_profile: 99,
-        username: "user#{user_count}",
-        password_digest: "temptemptemp"
-    },
-])
-
-
+users = User.create(user_list)
 
 
 puts "Seeding preferences..."
@@ -91,5 +81,20 @@ preferences = Preference.create([
     },
     
 ])
+
+puts "Seeding user_preferences..."
+users.length.times do |t|
+    user_id = users[t].id
+    preferences.length.times do |w|
+        preference_id = preferences[w].id
+        choice_value = rand(1..5)
+        UserPreference.create({
+            user_id: user_id,
+            preference_id: preference_id,
+            choice_value: choice_value
+        })
+    end
+end
+
 
 puts "Done!"
