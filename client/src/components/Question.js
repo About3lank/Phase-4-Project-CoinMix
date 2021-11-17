@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 function Question({ pref }) {
 
-    const [ value, setValue ] = useState(3)
+    const [ value, setValue ] = useState(pref.choice_value)
 
     function updateHandler() {
         const currentVal = document.getElementById(`slider-${pref.id}`).value
@@ -37,7 +37,7 @@ function Question({ pref }) {
                     max="5"
                     step="1"
                     defaultValue="3"
-                    value={pref.choice_value}
+                    value={value}
                     onInput={updateHandler}
                     onChange={updateHandler}
                     list={`intervals-${pref.preference.id}`} />
