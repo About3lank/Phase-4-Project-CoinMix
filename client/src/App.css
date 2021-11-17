@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+.slider {
+  width: 80.75%;
+  height: 5em;
+  display: block;
+  margin: auto;
+  /* background: transparent; */
+}
+
+.question-container{
+  width:70em;
+  margin: auto;
+  border: 1px solid rgb(148, 148, 148);
+  padding: 1em;
+  background-color: #cfcfcf;
+}
+
+.question-container:hover {
+  background-color: #e7e7e7;
+  box-shadow: 0px 5px 5px black;
+}
+
+.question {
+  width: 50%;
+  text-align: center;
+  margin: 1em auto 0em auto;
+}
+
+table, .choice-row {
+  width: 100%;
+}
+
+.choice{
+  width: 20%;
+  text-align: center;
+  padding: 0 2em 0 2em;
+
+}
+

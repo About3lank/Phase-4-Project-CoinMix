@@ -1,21 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from "react";
+import Preferences from './components/Preferences.js';
+
+import { useState } from 'react'
+
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+  // const gS = new Galactic()
+  // const [testState, setTestState] = useState(true)
+  // gS.update("testState", testState)
+  // gS.update("setTestState", setTestState)
 
-  return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
-  );
+
+  return(
+    <>
+      <Preferences />
+    </>
+
+  )
+
 }
 
 export default App;
+
+
