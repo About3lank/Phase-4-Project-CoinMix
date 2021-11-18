@@ -24,7 +24,8 @@ user_bank.each_with_index do |b, i|
         # note that risk_profile should call a function
         # that sums user's user_preference values
         username: "user#{101 + i}",
-        password_digest: "temptemptemp"
+        password: "temptemptemp",
+        email: "tempyMcTempel@temp.com"
     })
 end
 users = User.create(user_list)

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
     
+    skip_before_aciton :confirm_authentication
+
+
     #'/me'
     def show 
         if current_user
@@ -11,8 +14,8 @@ class UsersController < ApplicationController
 
     #'/signup'
     def create 
-        user = User.new(user_params)
-        if user.save 
+        user = User.create(user_params)
+        if user.valid?
             session[:user_id] = user.id
             render json: user, status: :ok
         else 
@@ -21,12 +24,7 @@ class UsersController < ApplicationController
 
     end
 
-    #'/login'
-
-
-
-    #'/logout'
-    
+ 
     
     def index
         users = User.all
