@@ -112,7 +112,7 @@ coin_name_bank.each_with_index do |c, i|
         volume: (rand(1..30)*1000000000),
         market_cap: (rand(1..100)*10000000000),
         risk_level: (rand(1..30)),
-        category: nil
+      
     })
 end
 coins = Coin.create(coin_list)
