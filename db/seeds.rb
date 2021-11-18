@@ -98,5 +98,41 @@ users.length.times do |t|
     end
 end
 
+puts "Seeding coins..."
+coin_name_bank = [
+    "BTC", "ETH", "ADA", "MATH", "BAT", 
+    "DOGE", "LTC", "XRP", "SOL", "LINK", 
+    "UNI", "LUNA", "SHIBA"
+]
+coin_list = []
+coin_name_bank.each_with_index do |c, i|
+    coin_list.push({
+        name: c,
+        price: (rand(1..2000000)/100),
+        volume: (rand(1..30)*1000000000),
+        market_cap: (rand(1..100)*10000000000),
+        risk_level: (rand(1..30)),
+        category: nil
+    })
+end
+coins = Coin.create(coin_list)
+
+puts "Seeding user_coins..."
+users.length.times do |t|
+    user_id = users[t].id
+    coins.length.times do |w|
+        coin_id = coins[w].id
+        amount = rand(1..500)
+        dice_roll = rand(1..100)
+        dice_roll>80?
+        UserCoin.create({
+            user_id: user_id,
+            coin_id: coin_id,
+            amount: amount
+        }) :
+        nil
+    end
+end
+
 
 puts "Done!"

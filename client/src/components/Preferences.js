@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import Question from './Question.js'
 
-function Preferences() {
+function Preferences({ currentUser, setCurrentUser }) {
 
     const [ user_preferences, setUserPreferences ] = useState([])
-    const [ currentUser, setCurrentUser ] = useState({id: 10})
+
     
 
     useEffect( () => {
@@ -12,6 +12,8 @@ function Preferences() {
         .then(r => r.json())
         .then(data => setUserPreferences(data.filter( (u) => (u.user_id === currentUser.id))))
     }, [])
+
+
 
     return(
         <form id="preference-form">

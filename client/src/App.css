@@ -84,3 +84,26 @@ table, .choice-row {
   box-shadow: 0px 5px 5px rgb(70, 70, 70);
 }
 
+#portfolio-table {
+  border-collapse:collapse;
+}
+
+.very-low {
+  background-color: green;
+}
+
+.low {
+  background-color: lime;
+}
+
+.medium {
+  background-color: yellowgreen;
+}
+
+.high {
+  background-color: yellow;
+}
+
+.very-high {
+  background-color: orange;
+}
