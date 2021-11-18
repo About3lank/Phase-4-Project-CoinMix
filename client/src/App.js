@@ -3,7 +3,7 @@ import './App.css';
 
 
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import AuthenticatedApp from './components/AuthenticatedApp.js'
 import UnauthenticatedApp from './components/UnauthenticatedApp.js'
@@ -50,9 +50,10 @@ function App() {
 
   return(
     
-      <>
-        {/* {currentUser?  */}
-        {true?
+      <Router>
+        <Routes>
+          <Route path="/" element= {  
+        true?
           
           <AuthenticatedApp
             currentUser={currentUser}
@@ -62,8 +63,11 @@ function App() {
           :
           <UnauthenticatedApp/>
         
-        }
-      </>
+        }/>
+     
+        </Routes>
+        </Router>
+
       // {currentUser? <AuthenticatedApp currentUser={currentUser} setCurrentUser={setCurrentUser}/> : <></>}
     
 
