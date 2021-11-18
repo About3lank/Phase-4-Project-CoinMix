@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Choice from './Choice'
 
 function Question({ pref }) {
 
@@ -6,11 +7,7 @@ function Question({ pref }) {
 
     function updateHandler() {
         const currentVal = document.getElementById(`slider-${pref.id}`).value
-        setValue(currentVal)
-    }
-
-    function clickHandler(value) {
-        setValue(value)
+        setValue(parseInt(currentVal))
     }
 
     let choices = []
@@ -52,11 +49,10 @@ function Question({ pref }) {
                     <table>
                         <tr class="choice-row">
                             {choices.map( (choice) => 
-                            <td 
-                                className="choice"
-                                onClick={() => clickHandler(choice.value)} >
-                                    {choice.text}
-                            </td>)}
+                                <Choice 
+                                    choice={choice}
+                                    value={value}
+                                    setValue={setValue} />)}
                         </tr>
                     </table>
                 </div>

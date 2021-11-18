@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Coin from './Coin.js'
 
 function Portfolio({ coins, setCoins, currentUser }) {
+    console.log("CURRENT_USER @PORTFOLIO: ", currentUser)
 
     const userCoins = currentUser.user_coins
 

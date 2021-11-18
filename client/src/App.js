@@ -15,6 +15,7 @@ function App() {
   const [ currentUser, setCurrentUser ] = useState(null)
   const [ authChecked, setAuthChecked ] = useState(true)
   const [ coins, setCoins ] = useState([])
+  const [ userPreferences, setUserPreferences ] = useState([])
 
   function randomizer(arr) {
     let item = arr[Math.floor(Math.random() * arr.length)]
@@ -29,7 +30,14 @@ function App() {
     fetch("/coins")
     .then(r => r.json())
     .then(data => setCoins(data))
+
+    fetch("/user_preferences")
+    .then(r => r.json())
+    // .then(data => setUserPreferences(data.filter( (u) => (u.user_id === currentUser.id))))
+    .then(data => setUserPreferences(data.filter( (u) => (u.user_id === 10))))
   }, [])
+
+  console.log("CURRENT_USER @App.js: ", currentUser)
 
 
   // const gS = new Galactic()
@@ -43,11 +51,14 @@ function App() {
   return(
     
       <>
-        {currentUser? 
+        {/* {currentUser?  */}
+        {true?
           
           <AuthenticatedApp
             currentUser={currentUser}
-            coins={coins} />
+            coins={coins}
+            userPreferences={userPreferences}
+            setUserPreferences={setUserPreferences} />
           :
           <UnauthenticatedApp/>
         

@@ -45,11 +45,16 @@
   /* background: transparent; */
 }
 
+#preferences-container {
+  width: 70em;
+  margin: auto;
+}
+
 .question-container{
-  width:70em;
+  width:100%;
   margin: auto;
   border: 1px solid rgb(148, 148, 148);
-  padding: 1em;
+
   background-color: #cfcfcf;
 }
 
@@ -79,10 +84,17 @@ table, .choice-row {
   box-shadow: 0px 12px 12px rgb(156, 156, 156);
 }
 
-.choice:hover{
-  background-color: rgb(206, 206, 206);
+.selected {
+  background-color: rgb(172, 212, 172);
   box-shadow: 0px 5px 5px rgb(70, 70, 70);
 }
+
+.choice:hover{
+  background-color: rgb(206, 206, 206);
+  box-shadow: 0px 9px 5px rgb(104, 104, 104);
+}
+
+
 
 #portfolio-table {
   border-collapse:collapse;
@@ -106,4 +118,18 @@ table, .choice-row {
 
 .very-high {
   background-color: orange;
+}
+
+input[type=submit] {
+  width: 100%;
+  height: 6em;
+  background-color: rgb(102, 223, 108);
+  /* border: 1px solid rgb(148, 148, 148); */
+  /* box-shadow: 0px 0px 5px black; */
+  font-size: 2em;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(75, 194, 81);
+  box-shadow: 0px 9px 5px rgb(104, 104, 104);
 }
