@@ -6,7 +6,6 @@ function Portfolio({ coins, setCoins, currentUser }) {
 
     const userCoins = currentUser.user_coins
 
-
     // console.log("userCoins (after fetch): ", userCoins)
     // console.log("coins: ", coins)
 

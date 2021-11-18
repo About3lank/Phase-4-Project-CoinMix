@@ -1,9 +1,9 @@
 import Preferences from './Preferences.js'
 import Portfolio from './Portfolio.js'
 
-function AuthenticatedApp({ coins, currentUser, userPreferences, setUserPreferences }) {
+function AuthenticatedApp({ coins, currentUser, preferences }) {
 
-    console.log("CURRENT_USER @AuthApp.js: ", currentUser)
+    // console.log("CURRENT_USER @AuthApp.js: ", currentUser)
 
     return(
         <>
@@ -11,9 +11,8 @@ function AuthenticatedApp({ coins, currentUser, userPreferences, setUserPreferen
             currentUser={currentUser}
             coins={coins} /> */}
           <Preferences
-            currentUser={currentUser} 
-            userPreferences={userPreferences}
-            setUserPreferences={setUserPreferences} />
+            currentUser={currentUser}
+            preferences={preferences} />
         </>
       )
 }

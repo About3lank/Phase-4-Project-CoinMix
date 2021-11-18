@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     
-    skip_before_aciton :confirm_authentication
+    skip_before_action :confirm_authentication
 
 
     #'/me'
