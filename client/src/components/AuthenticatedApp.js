@@ -7,10 +7,10 @@ function AuthenticatedApp({ coins, currentUser }) {
 
     return(
         <>
-          <Portfolio 
+          {/* <Portfolio 
             currentUser={currentUser}
-            coins={coins} />
-          {/* <Preferences currentUser={currentUser} setCurrentUser={setCurrentUser}/> : <></>} */}
+            coins={coins} /> */}
+          <Preferences currentUser={currentUser} /> : <></>}
         </>
       )
 }

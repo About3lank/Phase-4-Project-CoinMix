@@ -18,6 +18,7 @@ function Preferences({ currentUser, setCurrentUser }) {
     return(
         <form id="preference-form">
             {user_preferences.map( (pref) => <Question pref={pref} />)}
+            <input type="submit" >SUBMIT</input>
         </form>
     )
 }
