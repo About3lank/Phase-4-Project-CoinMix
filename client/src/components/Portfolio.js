@@ -47,15 +47,15 @@ function Portfolio({ coins, mutatedCryptos, setCoins, currentUser }) {
                     
                     <th className="portfolio-cell"><SortButton item="name" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Name</th>
                     
-                    <th className="portfolio-cell"><SortButton item="price" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Price</th>
+                    <th className="portfolio-cell"><SortButton item="priceUsd" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Price</th>
                     
                     <th className="portfolio-cell"><SortButton item="equity" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Equity</th>
                     
                     <th className="portfolio-cell"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>{"Risk (<=30)"}</th>
                     
-                    <th className="portfolio-cell"><SortButton item="volume" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Volume</th>
+                    <th className="portfolio-cell"><SortButton item="volumeUsd24Hr" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Volume</th>
                     
-                    <th className="portfolio-cell"><SortButton item="market_cap" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Market Cap</th>
+                    <th className="portfolio-cell"><SortButton item="marketCapUsd" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Market Cap</th>
 
                 </tr>
                 </table>

@@ -35,10 +35,10 @@ function Coin({ thisCoin, coins, currentUser, mode }) {
    
                     <td>${thisCoin.symbol}</td>
                     <td>{thisCoin.name}</td>
-                    <td>${numWithCommas(parseFloat(thisCoin.priceUsd).toFixed(2))}</td>
+                    <td>${numWithCommas(thisCoin.priceUsd.toFixed(2))}</td>
                     {mode==="portfolio"? <td>${numWithCommas((thisCoin.equity).toFixed(2))}</td> : null}
                     <td>{thisCoin.risk_level}</td>
-                    <td>{`$${(thisCoin.volumeUsd24Hr/1000000000).toFixed(2)}b/24h`}</td>
+                    <td>{`$${numWithCommas((thisCoin.volumeUsd24Hr/1000000).toFixed(2))}m/24h`}</td>
                     <td>{`${(thisCoin.marketCapUsd/1000000000).toFixed(2)}b`}</td>
 
 

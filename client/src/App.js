@@ -71,6 +71,9 @@ useEffect(() => {
     amount: (userOwnsCoin(coin, currentUser)? currentUser.user_coins.filter( (uc) => uc.coin_id+1===parseInt(coin.rank))[0].amount : 0),
     equity: (userOwnsCoin(coin, currentUser)? currentUser.user_coins.filter( (uc) => uc.coin_id+1===parseInt(coin.rank))[0].amount*coin.priceUsd : 0)
   }))
+  mutatedCryptos.forEach((mC) => mC.marketCapUsd = parseFloat(mC.marketCapUsd))
+  mutatedCryptos.forEach((mC) => mC.volumeUsd24Hr = parseFloat(mC.volumeUsd24Hr))
+  mutatedCryptos.forEach((mC) => mC.priceUsd = parseFloat(mC.priceUsd))
 
   console.log("MUTATED CRYPTOS @APP.js: ", mutatedCryptos)
 
