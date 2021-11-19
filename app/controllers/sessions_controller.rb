@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :confirm_authentication
+    # skip_before_action :confirm_authentication
     
     # , only: [:create]
 
@@ -20,8 +20,6 @@ class SessionsController < ApplicationController
     def destroy 
         session.delete(:user_id)
     end
-
- 
 
 
 end

@@ -25,7 +25,9 @@ user_bank.each_with_index do |b, i|
         # that sums user's user_preference values
         username: "user#{101 + i}",
         password: "temptemptemp",
-        email: "tempyMcTempel@temp.com"
+        email: "tempyMcTempel@temp.com",
+        admin: false
+        
     })
 end
 users = User.create(user_list)

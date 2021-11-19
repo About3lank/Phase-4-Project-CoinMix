@@ -5,8 +5,13 @@ class ApplicationController < ActionController::API
 #   before_action :confirm_authentication
 
   private
+
   def current_user
-    User.first
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def confirm_authentication
+    render json: {error: "You must be logged in to do that."}, status: :unauthorized unless current_user
   end
 #     # @current_user ||= User.find_by(id: session[:user_id])
 #     # puts "wefgyuwihfoesfgha;iofherhbfekl"
@@ -21,15 +26,7 @@ class ApplicationController < ActionController::API
 #     current_user
 #   end
 
-#   def confirm_authentication
-#     render json: {error: "You must be logged in to do that."}, status: :unauthorized unless logged_in?
-#   end
 
-#   # byebug
-
-  
-#   # byebug
-  
   # def hello_world
   #   session[:count] = (session[:count] || 0) + 1
   #   render json: { count: session[:count] }
