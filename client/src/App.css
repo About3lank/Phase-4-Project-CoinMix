@@ -13,6 +13,8 @@
   }
 }
 
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -69,7 +71,7 @@
   margin: 1em auto 0em auto;
 }
 
-table, .choice-row {
+.choice-table {
   width: 100%;
 }
 
@@ -89,35 +91,102 @@ table, .choice-row {
   box-shadow: 0px 5px 5px rgb(70, 70, 70);
 }
 
+button.selected {
+  background-color: rgb(88, 216, 255);
+  box-shadow: 0px 2px 2px rgb(70, 70, 70);
+}
+
 .choice:hover{
   background-color: rgb(206, 206, 206);
   box-shadow: 0px 9px 5px rgb(104, 104, 104);
 }
 
+.active {
+  background-color: ;
+}
 
-
-#portfolio-table {
+.coin-table {
   border-collapse:collapse;
 }
 
-.very-low {
-  background-color: green;
+th, td {
+  text-align: right;
+  padding-right: .5em;;
 }
 
-.low {
-  background-color: lime;
+.col-verythin {
+  width: 3em;
 }
 
-.medium {
-  background-color: yellowgreen;
+.col-thin {
+  width: 5em;
 }
 
-.high {
-  background-color: yellow;
+.col-medium {
+  width: 6em;
 }
 
-.very-high {
-  background-color: orange;
+.col-medbig {
+  width: 8em;
+}
+
+.col-large {
+  width: 10em;
+}
+
+#coinmarket-container {
+  width: 50%;
+  border: 1px solid black;
+
+}
+
+#test-div {
+  width: 50%
+}
+
+#marketplace-row2 {
+  display: flex;
+}
+
+#marketplace-container {
+  background-color:rgb(180, 180, 180);
+  width: 90em;
+  padding: 1em 3em 2em 3em;
+  margin: auto;
+}
+
+#coinmarket-wrapper {
+  background-color:rgb(180, 180, 180);
+  width: 90em;
+  padding: 2em;
+  margin: auto;
+  
+}
+
+#portfolio-table {
+  margin-right: 0em;
+  margin-left: auto;
+  width: 100%;
+  margin: auto;
+}
+
+#market-table {
+  width: 100%;
+  margin-right: 0em;
+  margin-left: auto;
+}
+
+
+#portfolio-container {
+  margin-bottom: 3em;
+}
+
+.r-align {
+  text-align: right;
+}
+
+.l-align {
+  text-align: left;
 }
 
 input[type=submit] {
