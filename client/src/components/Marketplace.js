@@ -26,7 +26,7 @@ function Marketplace({ currentUser, coins, cryptos, mutatedCryptos, setCryptos }
             labels: labels,
             datasets: [
               {
-                label: 'Rainfall',
+                label: 'Cryptocurrency Holdings by Equity/Risk',
                 backgroundColor: backgroundColor,
                 hoverBackgroundColor: hoverColor,
                 data: equityData
@@ -41,8 +41,8 @@ function Marketplace({ currentUser, coins, cryptos, mutatedCryptos, setCryptos }
                   options={{
                     title:{
                       display:true,
-                      text:'Average Rainfall per month',
-                      fontSize:20
+                      text:'Breakdown of estimated risk levels given your current portfolio',
+                      fontSize:40
                     },
                     legend:{
                       display:true,
