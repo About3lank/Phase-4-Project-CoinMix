@@ -64,15 +64,29 @@ useEffect(() => {
     return item
   }
 
-  // mutate data to evaluate necessary data points, format the way components expect
+  // mutate data to evaluate necessary data points, format the way components expect, fit names on one line
   let mutatedCryptos = [...cryptos]
   mutatedCryptos.forEach((mC) => {
     mC.id = (parseInt(mC.rank)-1)
     mC.marketCapUsd = parseFloat(mC.marketCapUsd)
     mC.volumeUsd24Hr = parseFloat(mC.volumeUsd24Hr)
     mC.priceUsd = parseFloat(mC.priceUsd)
+    if (mC.name==="Experience Points") {
+      mC.name = "Exp Points"
+    }
+    if (mC.name==="Ethereum Classic") {
+      mC.name = "ETH Classic"
+    }
+    if (mC.name==="Curve Dao Token") {
+      mC.name = "Curve Dao"
+    }
+    if (mC.name==="Crypto.com Coin") {
+      mC.name = "Crypto.com"
+    }
+    if (mC.name==="Multi Collateral DAI") {
+      mC.name = "DAI"
+    }
   })
-  
   mutatedCryptos = mutatedCryptos.map( (coin) => ({
     ...coin,
     owned: userOwnsCoin(coin, currentUser),
