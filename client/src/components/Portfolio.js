@@ -33,7 +33,7 @@ function Portfolio({ coins, setCoins, currentUser }) {
         <div id="portfolio-container">
             <h1 className="marketplace-title" >MY PORTFOLIO</h1>
             <table id="portfolio-table" className="coin-table">
-                <tr>
+                <tr className="portfolio-row">
                     {/* <th><SortButton key="amount" /> Amount</th>
                     <th><SortButton key="name" /> Name</th>
                     <th><SortButton key="price" /> Price</th>

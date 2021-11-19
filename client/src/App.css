@@ -135,13 +135,13 @@ th, td {
 }
 
 #coinmarket-container {
-  width: 50%;
+  width: 55%;
   /* border: 1px solid black; */
 
 }
 
 #test-div {
-  width: 50%
+  width: 45%
 }
 
 #marketplace-row2 {
@@ -169,6 +169,7 @@ th, td {
   width: 100%;
   margin: auto;
 }
+
 
 #market-table {
   width: 100%;
