@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
     skip_before_action :confirm_authentication
     
+    # , only: [:create]
 
 
     #'/login'
