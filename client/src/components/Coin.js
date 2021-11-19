@@ -3,42 +3,43 @@ import numWithCommas from "../functions/numWithCommas"
 
 function Coin({ thisCoin, coins, currentUser, mode }) {
 
-    console.log("THIS COIN: ", thisCoin)
+    // console.log("THIS COIN: ", thisCoin)
 
 
-    let full_coin = thisCoin
+    // let full_coin = thisCoin
     let userCoin, holding
     
     if (mode==="portfolio") {
-        userCoin= currentUser.user_coins.filter((uc) => uc.coin_id===thisCoin.id)
+        // userCoin= currentUser.user_coins.filter((uc) => uc.coin_id===thisCoin.id)
         // holding = currentUser.user_coins.filter((uc) => uc.coin_id===thisCoin.id)[0].amount
     }
 
-    console.log("USER COINNN: ", userCoin)
+    // console.log("USER COINNN: ", userCoin)
 
     let hexRgbVal = riskToRgbHex(thisCoin.risk_level, 30)
     // console.log("NUM WITH COMMAS TEST: ", numWithCommas(1113411352.22))
 
+    console.log("AMOUNT: ", thisCoin.amount)
     if (mode==="portfolio") {
-        if (!thisCoin.owned) {
+        if (!thisCoin.amount) {
             return null
         }
     }
 
     return(
-        <tr className="coin"
+        <tr className={`coin ${mode}-cell`}
             style={{backgroundColor: `${hexRgbVal}`}}>
                 {mode==="portfolio"?
                         <td>{numWithCommas(thisCoin.amount)}</td> 
                         : thisCoin.owned? <td>✓</td> : <td></td>}
    
-
-                    <td>${thisCoin.name}</td>
-                    <td>${numWithCommas((thisCoin.price/100).toFixed(2))}</td>
+                    <td>${thisCoin.symbol}</td>
+                    <td>{thisCoin.name}</td>
+                    <td>${numWithCommas(parseFloat(thisCoin.priceUsd).toFixed(2))}</td>
                     {mode==="portfolio"? <td>${numWithCommas((thisCoin.equity).toFixed(2))}</td> : null}
                     <td>{thisCoin.risk_level}</td>
-                    <td>{`$${(thisCoin.volume/1000000000).toFixed(2)}b/24h`}</td>
-                    <td>{`${thisCoin.market_cap/1000000000}b`}</td>
+                    <td>{`$${(thisCoin.volumeUsd24Hr/1000000000).toFixed(2)}b/24h`}</td>
+                    <td>{`${(thisCoin.marketCapUsd/1000000000).toFixed(2)}b`}</td>
 
 
         </tr>

@@ -9,12 +9,12 @@ function SortButton({ item, sortedBy, setSortedBy, ascending, setAscending }) {
             setAscending(!ascending)
         } else {
             setSortedBy(item)
-            item==="name"? setAscending(true):setAscending(false)
+            item==="name" || item==="symbol"? setAscending(true):setAscending(false)
         }
     }
 
     return (
-        <button className={`button${sortedBy===item? " selected":""}`} onClick={sortHandler}>{item===sortedBy? ascending? item==="name"? "v":"v":"^":"^"}</button>
+        <button className={`button${sortedBy===item? " selected":""}`} onClick={sortHandler}>{item===sortedBy? ascending? (item==="name" || item==="symbol")? "v":"v":"^":"^"}</button>
     )
 }
 

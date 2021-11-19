@@ -4,19 +4,35 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AuthenticatedApp from './components/AuthenticatedApp.js'
 import UnauthenticatedApp from './components/UnauthenticatedApp.js'
+import userOwnsCoin from './functions/userOwnsCoin';
 
 
 function App() {
 
-  // data to be fetched and stored in state
   const [ currentUser, setCurrentUser ] = useState(null)
   const [ authChecked, setAuthChecked ] = useState(false)
   const [ coins, setCoins ] = useState([])
   const [ preferences, setPreferences ] = useState([])
+  const [ cryptos, setCryptos ] = useState([])
+
+useEffect(() => {
+  const fetchPrices = async () => {
+    const res = await fetch("https://api.coincap.io/v2/assets/?limit=100")
+    const data = await res.json()
+    setCryptos(data.data)
+  }
+  fetchPrices()
+}, []);
+
+  console.log("CRYPTOS @App: ", cryptos)
+
+  // console.log("CRYPTO #1 ", cryptos.data[0])
+
+  // data to be fetched and stored in state
 
   // static data will eventually be fetched dynamically from rails server
   useEffect( () => {
-    setCurrentUser({"id":1,"username":"user101","email":"tempyMcTempel@temp.com","user_coins":[{"id":1,"amount":145,"user_id":1,"coin_id":4},{"id":2,"amount":340,"user_id":1,"coin_id":8},{"id":3,"amount":236,"user_id":1,"coin_id":10},{"id":4,"amount":96,"user_id":1,"coin_id":12}],"user_preferences":[{"id":1,"user_id":1,"preference_id":1,"choice_value":2},{"id":2,"user_id":1,"preference_id":2,"choice_value":2},{"id":3,"user_id":1,"preference_id":3,"choice_value":2},{"id":4,"user_id":1,"preference_id":4,"choice_value":2},{"id":5,"user_id":1,"preference_id":5,"choice_value":3},{"id":6,"user_id":1,"preference_id":6,"choice_value":4}]})
+    setCurrentUser({"id":1,"username":"user101","email":"tempyMcTempel@temp.com","user_coins":[{"id":1,"amount":145,"user_id":1,"coin_id":4},{"id":2,"amount":340,"user_id":1,"coin_id":44},{"id":3,"amount":236,"user_id":1,"coin_id":60},{"id":4,"amount":96,"user_id":1,"coin_id":12}],"user_preferences":[{"id":1,"user_id":1,"preference_id":1,"choice_value":2},{"id":2,"user_id":1,"preference_id":2,"choice_value":2},{"id":3,"user_id":1,"preference_id":3,"choice_value":2},{"id":4,"user_id":1,"preference_id":4,"choice_value":2},{"id":5,"user_id":1,"preference_id":5,"choice_value":3},{"id":6,"user_id":1,"preference_id":6,"choice_value":4}]})
   
     setPreferences([{"id":1,"question":"What is your risk tolerance or willingness to take financial risk?","choice_1":"Very Low","choice_2":"Low","choice_3":"Medium","choice_4":"High","choice_5":"Very High","user_preferences":[{"id":1,"user_id":1,"preference_id":1,"choice_value":2}]},{"id":2,"question":"What is your preference when holding risky assets?","choice_1":"Maximize Safety","choice_2":"Mostly Safety","choice_3":"Mix of Safety and Return","choice_4":"Mostly Return","choice_5":"Maximize Return","user_preferences":[{"id":2,"user_id":1,"preference_id":2,"choice_value":5}]},{"id":3,"question":"How knowledgeable are you about cryptocurrency and blockchain technologies?","choice_1":"Not at All Knowledgable","choice_2":"Minimally Knowledgeable","choice_3":"Moderately Knowledgeable","choice_4":"Competent","choice_5":"Very Knowledgeable","user_preferences":[{"id":3,"user_id":1,"preference_id":3,"choice_value":4}]},{"id":4,"question":"How much experience do you have with investing in cryptocurrency?","choice_1":"None","choice_2":"Very Little","choice_3":"Some","choice_4":"Modest","choice_5":"Extensive","user_preferences":[{"id":4,"user_id":1,"preference_id":4,"choice_value":3}]},{"id":5,"question":"What is your perception on the riskiness of the cryptocurrency market?","choice_1":"Very Risky","choice_2":"Somewhat Risky","choice_3":"Neutral","choice_4":"Somewhat Safe","choice_5":"Very Safe","user_preferences":[{"id":5,"user_id":1,"preference_id":5,"choice_value":3}]},{"id":6,"question":"In the past when faced with investment losses, what action did you take?","choice_1":"Sold Entire Investment (Paper Hands)","choice_2":"Sold Part of Investment","choice_3":"Did Nothing","choice_4":"Bought Small Amount More","choice_5":"Bought Significant Amount More (Diamond Hands)","user_preferences":[{"id":6,"user_id":1,"preference_id":6,"choice_value":2}]}])
   
@@ -48,6 +64,17 @@ function App() {
     return item
   }
 
+  let mutatedCryptos = cryptos.map( (coin) => ({
+    ...coin,
+    owned: userOwnsCoin(coin, currentUser),
+    risk_level: Math.floor(Math.random()*30)+1,
+    amount: (userOwnsCoin(coin, currentUser)? currentUser.user_coins.filter( (uc) => uc.coin_id+1===parseInt(coin.rank))[0].amount : 0),
+    equity: (userOwnsCoin(coin, currentUser)? currentUser.user_coins.filter( (uc) => uc.coin_id+1===parseInt(coin.rank))[0].amount*coin.priceUsd : 0)
+  }))
+
+  console.log("MUTATED CRYPTOS @APP.js: ", mutatedCryptos)
+
+
   // useEffect( () => {
   //   fetch("/users")
   //   .then(r => r.json())
@@ -63,7 +90,7 @@ function App() {
   // }, [])
 
   // console.log("COINS @App.js: ", coins)
-  console.log("CURRENT_USER @App.js: ", currentUser)
+  // console.log("CURRENT_USER @App.js: ", currentUser)
   // console.log("PREFERENCES @App.js: ", preferences)
 
 
@@ -84,6 +111,9 @@ function App() {
               <AuthenticatedApp
                 currentUser={currentUser}
                 coins={coins}
+                cryptos={cryptos}
+                mutatedCryptos={mutatedCryptos}
+                setCryptos={setCryptos}
                 preferences={preferences}/>
               :
               <UnauthenticatedApp/>

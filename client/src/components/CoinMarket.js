@@ -5,21 +5,20 @@ import { useState } from 'react'
 import kinderSorter from '../functions/kinderSorter'
 import userOwnsCoin from '../functions/userOwnsCoin'
 
-function CoinMarket({ currentUser, coins }) {
+function CoinMarket({ currentUser, coins, cryptos, mutatedCryptos, setCryptos }) {
 
     const [ sortedBy, setSortedBy ] = useState(null)
     const [ ascending, setAscending ] = useState(true)
 
-    // console.log(coins)
+    console.log("CRYPTOS @COINMARKET: ", cryptos)
     // console.log("CURRENT USER @COINMARKET: ", currentUser)
 
-    coins = coins.map( (coin) => ({
-        ...coin,
-        owned: userOwnsCoin(coin, currentUser)
-    }))
+    console.log("CRYPTOS @CoinMarket: ", cryptos)
+
+    // setCryptos(newCryptos)
 
     if (sortedBy) {
-        coins.sort(kinderSorter(sortedBy, ascending))
+        mutatedCryptos.sort(kinderSorter(sortedBy, ascending))
     }
 
     // console.log("COINS @CoinMarket: ", coins)
@@ -31,23 +30,35 @@ function CoinMarket({ currentUser, coins }) {
                 <tr>
                     <th className="col-medium"><SortButton item="owned" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Owned?</th>
 
+                    <th className="col-medium"><SortButton item="symbol" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Symbol</th>
+
                     <th className="col-medium"><SortButton item="name" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Name</th>
                     
-                    <th className="col-medbig"><SortButton item="price" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Price</th>
+                    <th className="col-medbig"><SortButton item="priceUsd" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Price</th>
                     
                     <th className="col-medbig"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />{"Risk (<=30)"}</th>
                     
-                    <th className="col-large"><SortButton item="volume" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Volume</th>
+                    <th className="col-large"><SortButton item="volumeUsd24Hr" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Volume</th>
                     
-                    <th className="col-medbig"><SortButton item="market_cap" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Market Cap</th>
+                    <th className="col-medbig"><SortButton item="marketCapUsd" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Market Cap</th>
                 </tr>
             </table>
             <div id="coinmarket-data">
-                <table className="market-table coin-table">
+                {/* <table className="market-table coin-table">
                     {coins.map( (c) => 
                         <Coin 
                             thisCoin={c}
                             coins={coins}
+                            cryptos={cryptos}
+                            currentUser={currentUser}
+                            mode={"market"} />)}
+                </table> */}
+                                <table className="market-table coin-table">
+                    {mutatedCryptos.map( (c) => 
+                        <Coin 
+                            thisCoin={c}
+                            coins={coins}
+                            cryptos={cryptos}
                             currentUser={currentUser}
                             mode={"market"} />)}
                 </table>

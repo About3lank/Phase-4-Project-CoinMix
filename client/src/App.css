@@ -109,12 +109,19 @@ button.selected {
   border-collapse:collapse;
 }
 
-th, td {
+.portfolio-cell {
   text-align: right;
   padding-right: .8em;;
+  width:12%
 }
 
-.col-verythin {
+.market-cell {
+  text-align: right;
+  padding-right: .8em;;
+  width:15%
+}
+
+/* .col-verythin {
   width: 3em;
 }
 
@@ -132,7 +139,7 @@ th, td {
 
 .col-large {
   width: 10em;
-}
+} */
 
 #coinmarket-container {
   width: 55%;
