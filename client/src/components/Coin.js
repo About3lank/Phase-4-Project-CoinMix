@@ -50,7 +50,7 @@ function Coin({ thisCoin, coins, currentUser, mode }) {
                             <button className="add button" onClick={submitAmount}>✓</button></form>
                         </td>
                         : thisCoin.owned? <td>✓</td> : <td><AddDeleteButton mode={"market"} /></td>}
-                    {thisCoin.owned? <AddDeleteButton mode={"portfolio"} /> : null}
+                    {(thisCoin.owned && mode==="portfolio")? <AddDeleteButton mode={"portfolio"} /> : null}
    
                     <td>${thisCoin.symbol}</td>
                     <td>{thisCoin.name}</td>
