@@ -38,7 +38,7 @@ function CoinMarket({ currentUser, coins, cryptos, mutatedCryptos, setCryptos })
                     
                     <th className="col-medbig"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />{"Risk (<=30)"}</th>
                     
-                    <th className="col-large"><SortButton item="volumeUsd24Hr" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Volume</th>
+                    <th className="col-large"><SortButton item="volumeUsd24Hr" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Volume(/24h)</th>
                     
                     <th className="col-medbig"><SortButton item="marketCapUsd" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Market Cap</th>
                 </tr>

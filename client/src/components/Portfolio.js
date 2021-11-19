@@ -53,7 +53,7 @@ function Portfolio({ coins, mutatedCryptos, setCoins, currentUser }) {
                     
                     <th className="portfolio-cell"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>{"Risk (<=30)"}</th>
                     
-                    <th className="portfolio-cell"><SortButton item="volumeUsd24Hr" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Volume</th>
+                    <th className="portfolio-cell"><SortButton item="volumeUsd24Hr" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Volume(/24h)</th>
                     
                     <th className="portfolio-cell"><SortButton item="marketCapUsd" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Market Cap</th>
 

@@ -12,7 +12,8 @@ function Marketplace({ currentUser, coins, cryptos, mutatedCryptos, setCryptos }
                 mutatedCryptos={mutatedCryptos} />
             <div id="marketplace-row2">
                 <div id="test-div" className="flex">
-                    <p>testtttttttttttttttttttttttttttttttttttttttt</p>
+                    <h1>RISK EVALUATION</h1>
+
                 </div>
 
                 <CoinMarket
