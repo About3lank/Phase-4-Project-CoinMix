@@ -6,8 +6,9 @@ class User < ApplicationRecord
     #adds password = (setter) instance method, password_confirmation =, and authenticate methods to User Model 
     has_secure_password
 
-    validates :username, presence: true, uniqueness: true 
-    validates :email, uniqueness: true, allow_blank: true
+    validates :username, presence: true
+    validates :email, presence: true, allow_blank: true
     validates :name, presence: true
-    validates :age, uniqueness: true, allow_blank: true
+    validates :age, presence: true, allow_blank: true
+    validates :risk_profile, presence: true
 end
