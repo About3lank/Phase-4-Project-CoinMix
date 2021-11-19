@@ -39,6 +39,11 @@
   }
 }
 
+.chart-container {
+  height:37em;
+  width: 37em;
+}
+
 .slider {
   width: 80.75%;
   height: 5em;
@@ -201,7 +206,7 @@ td  {
 }
 
 #coinmarket-data {
-  height: 28em;
+  height: 34em;
 }
 
 
