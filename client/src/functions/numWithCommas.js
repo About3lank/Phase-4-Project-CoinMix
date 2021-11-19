@@ -16,7 +16,6 @@ export default function numWithCommas(num) {
     } else {
         // console.log("NOT A DECIMAL")
         commaCount = numString.length/3
-
     }
     let preCount = numString.length%3
     // console.log(preCount)
@@ -24,8 +23,7 @@ export default function numWithCommas(num) {
         newString += numString.slice(0,preCount)
     }
     // console.log(newString)
-    
-    // console.log(newString)
+
     for (let i=0;i<commaCount*3;i+=3) {
         if (newString.length>0) {
             newString += ","
@@ -36,9 +34,7 @@ export default function numWithCommas(num) {
     if (hasDecimal) {
         newString += numString.slice(numString.length-3, numString.length)
     }
-
         // console.log(newString)
-    
     
     return newString
 }
