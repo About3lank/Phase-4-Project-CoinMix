@@ -1,7 +1,21 @@
 import riskToRgbHex from "../functions/riskToRgbHex"
 import numWithCommas from "../functions/numWithCommas"
+import AddDeleteButton from "./AddDeleteButton"
+import { useState } from 'react'
 
 function Coin({ thisCoin, coins, currentUser, mode }) {
+
+    const [ amount, setAmount ] = useState(thisCoin.amount)
+    // const [ localAmount, setLocalAmount ] = useState(thisCoin.amount)
+
+    function updateLocalAmount() {
+        let field = document.getElementById(`input-${thisCoin.id}`)
+        setAmount(field.value)
+    }
+
+    function submitAmount () {
+        console.log("fetch goes here")
+    }
 
     // console.log("THIS COIN: ", thisCoin)
 
@@ -27,11 +41,16 @@ function Coin({ thisCoin, coins, currentUser, mode }) {
     }
 
     return(
-        <tr className={`coin ${mode}-cell`}
+        <tr id={`${mode}-coin-${thisCoin.id}`}
+            className={`coin ${mode}-cell`}
             style={{backgroundColor: `${hexRgbVal}`}}>
                 {mode==="portfolio"?
-                        <td>{numWithCommas(thisCoin.amount)}</td> 
-                        : thisCoin.owned? <td>✓</td> : <td></td>}
+                        <td>
+                            <form><input id={`input-${thisCoin.id}`} type="number" value={numWithCommas(amount)} onChange={updateLocalAmount}></input>
+                            <button className="add button" onClick={submitAmount}>✓</button></form>
+                        </td>
+                        : thisCoin.owned? <td>✓</td> : <td><AddDeleteButton mode={"market"} /></td>}
+                    {(thisCoin.owned && mode==="portfolio")? <AddDeleteButton mode={"portfolio"} /> : null}
    
                     <td>${thisCoin.symbol}</td>
                     <td>{thisCoin.name}</td>

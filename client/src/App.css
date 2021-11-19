@@ -39,6 +39,11 @@
   }
 }
 
+.chart-container {
+  height:37em;
+  width: 37em;
+}
+
 .slider {
   width: 80.75%;
   height: 5em;
@@ -201,7 +206,7 @@ td  {
 }
 
 #coinmarket-data {
-  height: 28em;
+  height: 34em;
 }
 
 
@@ -231,6 +236,14 @@ input[type=submit] {
   /* border: 1px solid rgb(148, 148, 148); */
   /* box-shadow: 0px 0px 5px black; */
   font-size: 2em;
+}
+
+.add {
+  background-color: rgb(159, 255, 159);
+}
+
+.delete {
+  background-color: rgb(243, 66, 66);
 }
 
 input[type=submit]:hover {
