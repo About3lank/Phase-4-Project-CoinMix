@@ -66,8 +66,8 @@ useEffect(() => {
 
   // mutate data to evaluate necessary data points, format the way components expect
   let mutatedCryptos = [...cryptos]
-  mutatedCryptos.forEach((mC) => mC.id = (parseInt(mC.rank)-1))
   mutatedCryptos.forEach((mC) => {
+    mC.id = (parseInt(mC.rank)-1)
     mC.marketCapUsd = parseFloat(mC.marketCapUsd)
     mC.volumeUsd24Hr = parseFloat(mC.volumeUsd24Hr)
     mC.priceUsd = parseFloat(mC.priceUsd)
