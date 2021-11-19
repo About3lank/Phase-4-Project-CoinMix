@@ -29,13 +29,13 @@ function CoinMarket({ currentUser, coins }) {
             <h1 className="marketplace-title">COIN MARKET</h1>
             <table id="market-header" className="coin-table market-table">
                 <tr>
-                    <th className="col-thin"><SortButton item="owned" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Owned?</th>
+                    <th className="col-medium"><SortButton item="owned" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Owned?</th>
 
                     <th className="col-medium"><SortButton item="name" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Name</th>
                     
                     <th className="col-medbig"><SortButton item="price" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Price</th>
                     
-                    <th className="col-medium"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Risk Level</th>
+                    <th className="col-medbig"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />{"Risk (<=30)"}</th>
                     
                     <th className="col-large"><SortButton item="volume" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Volume</th>
                     

@@ -49,7 +49,7 @@ function Portfolio({ coins, setCoins, currentUser }) {
                     
                     <th className="col-large"><SortButton item="equity" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Equity</th>
                     
-                    <th className="col-medium"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Risk Level</th>
+                    <th className="col-medium"><SortButton item="risk_level" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>{"Risk (<=30)"}</th>
                     
                     <th className="col-large"><SortButton item="volume" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Volume</th>
                     
