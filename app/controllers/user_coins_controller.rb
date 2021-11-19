@@ -1,5 +1,6 @@
 class UserCoinsController < ApplicationController
 
+
     def index 
         user_coins = UserCoin.all
         render json: user_coins

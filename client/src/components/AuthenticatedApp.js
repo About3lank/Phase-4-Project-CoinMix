@@ -3,7 +3,7 @@ import Portfolio from './Portfolio.js'
 import Marketplace from './Marketplace.js';
 import { Switch, Route, Redirect, NavLink } from 'react-router-dom';
 
-function AuthenticatedApp({ coins, cryptos, mutatedCryptos, setCryptos, currentUser, setCurrentUser, preferences }) {
+function AuthenticatedApp({ coins, cryptos, mutatedCryptos, setCryptos, currentUser, setCurrentUser, preferences, setAuthChecked }) {
 
     const handleLogout = () => {
       fetch(`/logout`, {
@@ -12,6 +12,7 @@ function AuthenticatedApp({ coins, cryptos, mutatedCryptos, setCryptos, currentU
         .then(res => {
           if (res.ok) {
             setCurrentUser(null)
+            setAuthChecked(false)
           }
         })
     }

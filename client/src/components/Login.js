@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Redirect, useHistory, Link } from 'react-router-dom'
 
     function Login({ setCurrentUser }) {
-        const history = useHistory()
+        // const history = useHistory()
         const [username, setUsername] = useState('')
         const [password, setPassword] = useState('')
         
@@ -18,12 +18,12 @@ import { Redirect, useHistory, Link } from 'react-router-dom'
             .then(res => {
               if (res.ok) {
                 res.json().then(user => {
-                  setCurrentUser(user)
-                  history.push('/coins')
+                  setCurrentUser({user})
+                  // history.push('/user_coins')
                 })
               } else {
-                setCurrentUser({ username: "Jon" })
-                history.push('/coins')
+                // setCurrentUser({user})
+                // history.push('/user_coins')
                 res.json().then(errors => {
                   console.error(errors)
                 })
@@ -33,7 +33,7 @@ import { Redirect, useHistory, Link } from 'react-router-dom'
 
     return (
     <div>
-       <Redirect to="/" />
+       {/* <Redirect to="/" /> */}
       <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
         <p>
@@ -63,8 +63,8 @@ import { Redirect, useHistory, Link } from 'react-router-dom'
           />
         </p>
         <p><button type="submit">Log In</button></p>
-        <p>-- or --</p>
-        <p><Link to="/signup">Sign Up</Link></p>
+        {/* <p>-- or --</p> */}
+        {/* <p><Link to="/signup">Sign Up</Link></p> */}
       </form>
             
     </div>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     
-    # skip_before_action :confirm_authentication
+    skip_before_action :confirm_authentication
 
 
     #'/me'
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     end
 
  
-    
     def index
         users = User.all
         render json: users, status: :ok

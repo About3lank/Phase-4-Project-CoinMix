@@ -26,10 +26,11 @@ user_bank.each_with_index do |b, i|
         username: "user#{101 + i}",
         password: "temptemptemp",
         email: "tempyMcTempel@temp.com",
-        admin: false
-        
+        admin: false,
     })
+    puts "adding user"
 end
+puts user_list
 users = User.create(user_list)
 
 

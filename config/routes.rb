@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :user_coins
   resources :preferences, only: [:index]
   resources :user_preferences, only: [:index, :update]
-  # resources :users
+  resources :users, only: [:index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #dont forget to delete this!!!!!!
   # get "/hello", to: "application#hello_world"
