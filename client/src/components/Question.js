@@ -48,7 +48,7 @@ function Question({ user_preference, preferences }) {
                     <option value="5" label="5"></option>
                 </dataList>
                 <div className="choice-row" id={`choice-row-${user_preference.id}`}>
-                    <table>
+                    <table class="choice-table">
                         <tr class="choice-row">
                             {choices.map( (choice) => 
                                 <Choice 

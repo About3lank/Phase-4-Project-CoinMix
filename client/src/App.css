@@ -13,6 +13,8 @@
   }
 }
 
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -69,7 +71,7 @@
   margin: 1em auto 0em auto;
 }
 
-table, .choice-row {
+.choice-table {
   width: 100%;
 }
 
@@ -89,35 +91,137 @@ table, .choice-row {
   box-shadow: 0px 5px 5px rgb(70, 70, 70);
 }
 
+button.selected {
+  background-color: rgb(88, 216, 255);
+  box-shadow: 0px 2px 2px rgb(70, 70, 70);
+}
+
 .choice:hover{
   background-color: rgb(206, 206, 206);
   box-shadow: 0px 9px 5px rgb(104, 104, 104);
 }
 
+.active {
+  background-color: ;
+}
 
-
-#portfolio-table {
+.coin-table {
   border-collapse:collapse;
 }
 
-.very-low {
-  background-color: green;
+th, td {
+  text-align: left;
+  padding-right: .8em;;
+  width:12%
 }
 
-.low {
-  background-color: lime;
+td  {
+  /* text-align: right; */
+  padding-right: .8em;;
+  width:12%
 }
 
-.medium {
-  background-color: yellowgreen;
+.market-cell {
+  text-align: right;
+  padding-right: .8em;;
+  width:15%
 }
 
-.high {
-  background-color: yellow;
+/* .col-verythin {
+  width: 3em;
 }
 
-.very-high {
-  background-color: orange;
+.col-thin {
+  width: 5em;
+}
+
+.col-medium {
+  width: 6em;
+}
+
+.col-medbig {
+  width: 8em;
+}
+
+.col-large {
+  width: 10em;
+} */
+
+#coinmarket-container {
+  width: 55%;
+  /* border: 1px solid black; */
+}
+
+#test-div {
+  width: 45%
+}
+
+#marketplace-row2 {
+  display: flex;
+}
+
+#marketplace-container {
+  background-color:rgb(180, 180, 180);
+  width: 90em;
+  padding: 1em 3em 3em 3em;
+  margin: 0 auto 3em auto;
+  box-shadow: 0px 5px 5px black;
+  border: 1px solid rgb(148, 148, 148);
+}
+
+#coinmarket-wrapper {
+  background-color:rgb(180, 180, 180);
+  width: 90em;
+  padding: 2em;
+  margin: auto;
+  
+}
+
+.portfolio-table, .market-table {
+  margin-right: 0em;
+  margin-left: auto;
+  width: 100%;
+  margin: auto;
+}
+
+.portfolio-table {
+  margin-right: 0em;
+  margin-left: auto;
+  width: 100%;
+  margin: auto;
+}
+
+#portfolio-data, #coinmarket-data {
+  overflow: auto;
+  background-color: rgb(223, 223, 223);
+}
+
+#portfolio-data {
+  height: 14em;
+}
+
+#coinmarket-data {
+  height: 28em;
+}
+
+
+#market-header {
+  width: 100%;
+  margin-right: 0em;
+  margin-left: auto;
+}
+
+
+#portfolio-container {
+  margin-bottom: 3em;
+}
+
+.r-align {
+  text-align: right;
+}
+
+.l-align {
+  text-align: left;
 }
 
 input[type=submit] {

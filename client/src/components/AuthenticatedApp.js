@@ -1,18 +1,22 @@
 import Preferences from './Preferences.js'
 import Portfolio from './Portfolio.js'
+import Marketplace from './Marketplace.js';
 
-function AuthenticatedApp({ coins, currentUser, preferences }) {
+function AuthenticatedApp({ coins, cryptos, mutatedCryptos, setCryptos, currentUser, preferences }) {
 
     // console.log("CURRENT_USER @AuthApp.js: ", currentUser)
 
     return(
         <>
-          <Portfolio 
+          <Marketplace 
             currentUser={currentUser}
-            coins={coins} />
-          {/* <Preferences
+            coins={coins}
+            cryptos={cryptos}
+            mutatedCryptos={mutatedCryptos}
+            setCryptos={setCryptos} />
+          <Preferences
             currentUser={currentUser}
-            preferences={preferences} />*/}
+            preferences={preferences} />
         </> 
       )
 }
