@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :coins
+  resources :coins, only: [:index]
   resources :user_coins
-  resources :preferences
-  resources :user_preferences
-  resources :users
+  resources :preferences, only: [:index]
+  resources :user_preferences, only: [:index, :update]
+  # resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #dont forget to delete this!!!!!!
   # get "/hello", to: "application#hello_world"
