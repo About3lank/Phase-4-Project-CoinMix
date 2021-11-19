@@ -32,7 +32,7 @@ function Portfolio({ coins, setCoins, currentUser }) {
     return(
         <div id="portfolio-container">
             <h1 className="marketplace-title" >MY PORTFOLIO</h1>
-            <table id="portfolio-table" className="coin-table">
+            <table id="portfolio-title" className="coin-table portfolio-table">
                 <tr className="portfolio-row">
                     {/* <th><SortButton key="amount" /> Amount</th>
                     <th><SortButton key="name" /> Name</th>
@@ -41,11 +41,11 @@ function Portfolio({ coins, setCoins, currentUser }) {
                     <th><SortButton key="risk_level" /> Risk Level</th>
                     <th><SortButton key="volume" /> Volume</th>
                     <th><SortButton key="market_cap" /> Market Cap</th> */}
-                    <th className="col-thin"><SortButton item="amount" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Amount</th>
+                    <th className="col-medium"><SortButton item="amount" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Amount</th>
                     
                     <th className="col-medium"><SortButton item="name" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Name</th>
                     
-                    <th className="col-medium"><SortButton item="price" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Price</th>
+                    <th className="col-medbig"><SortButton item="price" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Price</th>
                     
                     <th className="col-large"><SortButton item="equity" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Equity</th>
                     
@@ -56,13 +56,18 @@ function Portfolio({ coins, setCoins, currentUser }) {
                     <th className="col-medium"><SortButton item="market_cap" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Market Cap</th>
 
                 </tr>
-                {coinList.map( (c) => 
-                    <Coin 
-                        thisCoin={c}
-                        coins={coins}
-                        currentUser={currentUser}
-                        mode={"portfolio"} />)}
-            </table>
+                </table>
+                <div id="portfolio-data">
+                    <table className="coin-table portfolio-table" >
+                    {coinList.map( (c) => 
+                        <Coin 
+                            thisCoin={c}
+                            coins={coins}
+                            currentUser={currentUser}
+                            mode={"portfolio"} />)}
+                    </table>
+                </div>
+
         </div>
 
     )

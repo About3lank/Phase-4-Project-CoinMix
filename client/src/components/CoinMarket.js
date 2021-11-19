@@ -27,7 +27,7 @@ function CoinMarket({ currentUser, coins }) {
     return (
         <div id="coinmarket-container">
             <h1 className="marketplace-title">COIN MARKET</h1>
-            <table id="market-table" className="coin-table">
+            <table id="market-header" className="coin-table market-table">
                 <tr>
                     <th className="col-thin"><SortButton item="owned" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending}/>Owned?</th>
 
@@ -41,13 +41,18 @@ function CoinMarket({ currentUser, coins }) {
                     
                     <th className="col-medbig"><SortButton item="market_cap" sortedBy={sortedBy} setSortedBy={setSortedBy} ascending={ascending} setAscending={setAscending} />Market Cap</th>
                 </tr>
-                {coins.map( (c) => 
-                    <Coin 
-                        thisCoin={c}
-                        coins={coins}
-                        currentUser={currentUser}
-                        mode={"market"} />)}
             </table>
+            <div id="coinmarket-data">
+                <table className="market-table coin-table">
+                    {coins.map( (c) => 
+                        <Coin 
+                            thisCoin={c}
+                            coins={coins}
+                            currentUser={currentUser}
+                            mode={"market"} />)}
+                </table>
+            </div>
+
         </div>
 
     )
